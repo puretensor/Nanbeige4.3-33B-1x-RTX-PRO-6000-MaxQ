@@ -6,6 +6,8 @@ With ProCreations' DFlash2 drafter, code reaches **105.3 tok/s**.
 Every number below is a Verified run on [LocalMaxxing](https://www.localmaxxing.com), linked, so you can check the
 output, the prompt and the exact launch command. `./start.sh` launches the same images, weights and flags.
 
+**Recipe page, with the numbers explained:** https://puretensor.systems/models/Nanbeige4.3-33B-1x-RTX-PRO-6000-MaxQ/
+
 ```bash
 git clone https://github.com/puretensor/Nanbeige4.3-33B-1x-RTX-PRO-6000-MaxQ
 cd Nanbeige4.3-33B-1x-RTX-PRO-6000-MaxQ

@@ -52,8 +52,8 @@ fetch() {  # repo@commit -> $MODELS_DIR/<org>__<name>
 }
 
 if [ "$PROFILE" = "--list" ] || [ "$PROFILE" = "-h" ] || [ "$PROFILE" = "--help" ]; then
-  printf '%-13s %-7s %-6s %-9s %8s %13s\n' profile engine weights drafts code-v1 reasoning-v1
-  profiles | awk '{printf "%-13s %-7s %-6s %-9s %8s %13s\n", $1,$2,$3,$4,$5,$6}'
+  printf '%-13s %-7s %-7s %-9s %8s %13s\n' profile engine weights drafts code-v1 reasoning-v1
+  profiles | awk '{printf "%-13s %-7s %-7s %-9s %8s %13s\n", $1,$2,$3,$4,$5,$6}'
   echo "tok/s, batch 1, one RTX PRO 6000 Blackwell Max-Q at 325 W. Sources in README.md."
   exit 0
 fi

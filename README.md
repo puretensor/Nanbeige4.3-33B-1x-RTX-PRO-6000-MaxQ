@@ -116,7 +116,17 @@ Pinned versions:
 - We used our tuning harness to sweep one setting at a time: drafts, attention backend, KV cache type, async scheduling.
 - It gated each candidate on output quality and degeneration.
 - It kept a change only if interleaved fresh-boot confirms showed a gain of at least 1%.
-- Our CPU ran in a performance window (performance governor, boost on). That does not change decode, which runs as CUDA graphs.
+- Our CPU ran in a performance window (performance governor, boost on).
+
+**Reproduced from a fresh clone** on the same card, with the CPU in its normal state (boost off), 2026-11-02:
+
+| Profile | code-v1 | reasoning-v1 | tokens / step | Against the Verified run |
+|---|---:|---:|---|---|
+| `fast` | 95.2 | 92.8 | 1.36 at 14.3 ms | same, within 1.2% |
+| `code` | 99.5 | 69.0 | n/a (SGLang) | 5.5% and 3.5% lower |
+
+The vLLM profile runs as CUDA graphs and does not care about CPU boost. SGLang with DFlash2 does more work on the CPU
+between steps, so expect it to lose a few percent on a host without boost.
 
 ## Credits
 
